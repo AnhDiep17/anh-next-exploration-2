@@ -1,0 +1,25 @@
+{
+  "name": "anh-next-exploration-2",
+  "version": "1.0.0",
+  "description": "NextJS Explorations",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "next dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnhDiep17/anh-next-exploration-2.git"
+  },
+  "author": "Anh Diep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnhDiep17/anh-next-exploration-2/issues"
+  },
+  "homepage": "https://github.com/AnhDiep17/anh-next-exploration-2#readme",
+  "dependencies": {
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
