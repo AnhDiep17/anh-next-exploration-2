@@ -1,7 +1,7 @@
-function Header() {
-  return <h1>A Second Exploration Of NextJS</h1>;
+function Header({ title }) {
+  return <h1>{title ? title : "Welcome To The Funk Zone!"}</h1>;
 }
 
 export default function HomePage() {
-  return <Header />;
+  return <Header title="Welcome To The Undergronic Outpost!" />;
 }
