@@ -1,10 +1,12 @@
 function Header({ title }) {
-  return <div class="box">{title ? title : "Welcome To The Funk Zone!"}</div>;
+  return (
+    <div className="box">{title ? title : "Welcome To The Funk Zone!"}</div>
+  );
 }
 
 function NavMenu({ navmenu }) {
   return (
-    <div id="nav-menu" class="box">
+    <div id="nav-menu" className="box">
       {navmenu ? navmenu : "This is the nav menu."}
     </div>
   );
@@ -12,7 +14,7 @@ function NavMenu({ navmenu }) {
 
 function Summary({ summary }) {
   return (
-    <div id="summary-container" class="box">
+    <div id="summary-container" className="box">
       {summary ? summary : "This is a summary of this page."}
     </div>
   );
@@ -20,7 +22,7 @@ function Summary({ summary }) {
 
 function Footer({ footer }) {
   return (
-    <div id="footer" class="box">
+    <div id="footer" className="box">
       {footer ? footer : "This is the footer bit."}
     </div>
   );
@@ -28,7 +30,7 @@ function Footer({ footer }) {
 
 export default function HomePage() {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <Header title="Welcome To The Undergronic Outpost!" />
       <NavMenu />
       <Summary summary="Yo dude this page is all about some stuff." />
