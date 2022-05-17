@@ -6,8 +6,9 @@ body {
 .wrapper {
     display: grid;
     background-color: mediumturquoise;
-    grid-template-rows: 400px 100px 200px;
+    grid-template-columns: 100px;
     grid-gap: 10px;
+    justify-content: space-evenly;
 }
 
 .box {
