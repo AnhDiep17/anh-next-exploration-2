@@ -16,6 +16,7 @@ function Summary({ summary }) {
   return (
     <div id="summary-container" className="box">
       {summary ? summary : "This is a summary of this page."}
+      <button id="open-button">Open</button>
     </div>
   );
 }
