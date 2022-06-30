@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Header({ title }) {
   return (
     <div className="box">{title ? title : "Welcome To The Funk Zone!"}</div>
@@ -13,10 +15,19 @@ function NavMenu({ navmenu }) {
 }
 
 function Summary({ summary }) {
+  const [gateState, setGateState] = useState("closed");
+  const toggleGate = () => {
+    const targetState = gateState == "open" ? "closed" : "open";
+    setGateState(targetState);
+    console.log(gateState);
+  };
   return (
     <div id="summary-container" className="box">
       {summary ? summary : "This is a summary of this page."}
-      <button id="gate-button">Open</button>
+      <p>Gate status: {gateState}</p>
+      <button id="gate-button" onClick={toggleGate}>
+        Operate Gate
+      </button>
     </div>
   );
 }
