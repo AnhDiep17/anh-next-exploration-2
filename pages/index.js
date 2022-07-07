@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Header({ title }) {
+  useEffect(() => {
+    console.log(`The title is: ${title}`);
+  }, []);
+
   return (
     <div className="box">{title ? title : "Welcome To The Funk Zone!"}</div>
   );
