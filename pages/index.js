@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 
 function Header({ title }) {
-  useEffect(() => {
-    console.log(`The title is: ${title}`);
-  }, []);
-
   return (
     <div className="box">{title ? title : "Welcome To The Funk Zone!"}</div>
   );
@@ -23,8 +19,12 @@ function Summary({ summary }) {
   const toggleGate = () => {
     const targetState = gateState == "open" ? "closed" : "open";
     setGateState(targetState);
-    console.log(gateState);
   };
+
+  useEffect(() => {
+    console.log(`The gate state is: ${gateState}`);
+  }, [gateState]);
+
   return (
     <div id="summary-container" className="box">
       {summary ? summary : "This is a summary of this page."}
