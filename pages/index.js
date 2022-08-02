@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 
 function Header({ title }) {
   return (
@@ -16,20 +16,24 @@ function NavMenu({ navmenu }) {
 
 function Summary({ summary }) {
   const [gateState, setGateState] = useState("closed");
+  const [gateStateReducer, setGateStateReducer] = useReducer(
+    (gateStateReducer) => (gateStateReducer == "open" ? "closed" : "open"),
+    "closed"
+  );
   const toggleGate = () => {
     const targetState = gateState == "open" ? "closed" : "open";
     setGateState(targetState);
   };
 
   useEffect(() => {
-    console.log(`The gate state is: ${gateState}`);
-  }, [gateState]);
+    console.log(`The gate state is: ${gateStateReducer}`);
+  }, [gateStateReducer]);
 
   return (
     <div id="summary-container" className="box">
       {summary ? summary : "This is a summary of this page."}
-      <p>Gate status: {gateState}</p>
-      <button id="gate-button" onClick={toggleGate}>
+      <p>Gate status: {gateStateReducer}</p>
+      <button id="gate-button" onClick={setGateStateReducer}>
         Operate Gate
       </button>
     </div>
