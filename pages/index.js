@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useRef, useEffect, useReducer } from "react";
 
 function Header({ title }) {
   return (
@@ -15,15 +15,10 @@ function NavMenu({ navmenu }) {
 }
 
 function Summary({ summary }) {
-  const [gateState, setGateState] = useState("closed");
   const [gateStateReducer, setGateStateReducer] = useReducer(
     (gateStateReducer) => (gateStateReducer == "open" ? "closed" : "open"),
     "closed"
   );
-  const toggleGate = () => {
-    const targetState = gateState == "open" ? "closed" : "open";
-    setGateState(targetState);
-  };
 
   useEffect(() => {
     console.log(`The gate state is: ${gateStateReducer}`);
@@ -40,6 +35,23 @@ function Summary({ summary }) {
   );
 }
 
+function ColourSelector() {
+  const txtTitle = useRef();
+
+  const submitFunc = (e) => {
+    e.preventDefault();
+    console.log(`Text title = ${txtTitle.current.value}`);
+  };
+
+  return (
+    <form className="box" onSubmit={submitFunc}>
+      <input ref={txtTitle} type="text" placeholder="colour title ..." />
+      <input type="color" />
+      <button>ADD</button>
+    </form>
+  );
+}
+
 function Footer({ footer }) {
   return (
     <div id="footer" className="box">
@@ -53,6 +65,7 @@ export default function HomePage() {
     <div className="wrapper">
       <Header title="Welcome To The Undergronic Outpost!" />
       <NavMenu />
+      <ColourSelector />
       <Summary summary="Yo dude this page is all about some stuff." />
       <Footer />
     </div>
