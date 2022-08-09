@@ -37,16 +37,18 @@ function Summary({ summary }) {
 
 function ColourSelector() {
   const txtTitle = useRef();
+  const colourValue = useRef();
 
   const submitFunc = (e) => {
     e.preventDefault();
     console.log(`Text title = ${txtTitle.current.value}`);
+    console.log(`Box colour = ${colourValue.current.value}`);
   };
 
   return (
     <form className="box" onSubmit={submitFunc}>
       <input ref={txtTitle} type="text" placeholder="colour title ..." />
-      <input type="color" />
+      <input ref={colourValue} type="color" />
       <button>ADD</button>
     </form>
   );
